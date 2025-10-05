@@ -7,7 +7,7 @@ import { DailyInspirationPage } from './pages/DailyInspirationPage';
 import { JournalPage } from './pages/JournalPage';
 import { DiaryPage } from './pages/DiaryPage';
 import { TimerPage } from './pages/TimerPage';
-import { TherapistChatPage } from './pages/TherapistChatPage';
+import  TherapistChatPage  from './pages/TherapistChatPage';
 import { YogaMeditationPage } from './pages/YogaMeditationPage';
 import { TherapistDirectoryPage } from './pages/TherapistDirectoryPage';
 import { MoodQuizPage } from './pages/MoodQuizPage';
