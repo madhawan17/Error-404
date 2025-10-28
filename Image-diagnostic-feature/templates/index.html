@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Healthcare Diagnostics</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; text-align: center; margin-top: 30px; background-color: #f7f9fc; }
+        h1 { color: #2c3e50; }
+        .container { max-width: 600px; margin: auto; background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        select, input[type="file"] { width: 100%; padding: 12px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; font-size: 16px; }
+        input[type="submit"] { background-color: #007BFF; color: white; padding: 14px 22px; border: none; border-radius: 6px; cursor: pointer; font-size: 18px; font-weight: 500; }
+        input[type="submit"]:hover { background-color: #0056b3; }
+        #result { margin-top: 30px; padding: 20px; background-color: #f7f9fc; border-radius: 8px; }
+        h2 { color: #34495e; }
+        p { font-size: 18px; color: #555; }
+        .error { color: #d9534f; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI Healthcare Diagnostic Tool</h1>
+        
+        <form method="post" enctype="multipart/form-data">
+            
+            <label for="model_type" style="font-weight: 500; display: block; text-align: left; margin-bottom: 8px;">1. Select Analysis Type:</label>
+            <select name="model_type" id="model_type" required>
+                <option value="" disabled selected>-- Please choose an option --</option>
+                <option value="mri">Brain Tumor (MRI)</option>
+                <option value="skin">Skin Disease</option>
+                <option value="xray">Lung Disease (X-Ray)</option>
+            </select>
+
+            <label for="file" style="font-weight: 500; display: block; text-align: left; margin-bottom: 8px;">2. Upload Image:</label>
+            <input type="file" name="file" accept="image/*" required>
+            
+            <input type="submit" value="Analyze Image">
+        </form>
+
+        {% if result %}
+        <div id="result">
+            <h2>{{ result }}</h2>
+            <p>{{ confidence }}</p>
+            <p style="font-size: 14px; color: #777;"><i>{{ model_used }}</i></p>
+        </div>
+        {% endif %}
+        
+        {% if error %}
+        <div id="result">
+            <h2 class="error">{{ error }}</h2>
+        </div>
+        {% endif %}
+
+    </div>
+</body>
+</html>
